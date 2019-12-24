@@ -1,15 +1,15 @@
-package cl.fbesoain.argumentquality
+package messages.fbesoain.cl.emessage
 
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatActivity
+import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Settings
 import android.widget.Toast
+
 import kotlinx.android.synthetic.main.activity_main.*
 import messages.fbesoain.cl.emessage.api.API
-
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val sharedPreferences = baseContext.getSharedPreferences(
-            "EvaluacionMensaje", Context.MODE_PRIVATE
+                "EvaluacionMensaje", Context.MODE_PRIVATE
         )
         firstRun(sharedPreferences)
         btnSave.setOnClickListener {
@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(applicationContext, "Por favor ingrese su edad", Toast.LENGTH_SHORT).show()
             else {
                 sharedPreferences.edit().putString("UID", Settings.Secure.getString(applicationContext.contentResolver,
-                    Settings.Secure.ANDROID_ID)).apply()
+                        Settings.Secure.ANDROID_ID)).apply()
                 sharedPreferences.edit().putString("age", etAge.text.toString()).apply()
                 sharedPreferences.edit().putString("gender", sGender.selectedItem.toString()).apply()
                 sharedPreferences.edit().putString("lastMessageID", "").apply()
@@ -50,4 +50,3 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
-

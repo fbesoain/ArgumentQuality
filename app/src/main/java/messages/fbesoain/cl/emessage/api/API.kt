@@ -12,12 +12,12 @@ import com.github.kittinunf.fuel.core.FuelManager
 class API {
 
     companion object {
-        //private var SERVER = "http://10.0.3.2" // GENYMOTION
         //private var SERVER = "http://10.0.2.2" // ADV
-        private var SERVER = "http://sorte.ga" // SORTE.GA
         //private var SERVER = "http://192.168.1.101" // IP
-        private var PORT = 3110
-        private var URL: String = "$SERVER:$PORT"
+        private var SERVER = "http://www.cetmaule.cl/emessage/api/v1"
+        private var PORT = 5000
+        //private var URL: String = "$SERVER:$PORT"
+        private var URL: String = SERVER;
     }
 
     fun getApiURL(): String {
@@ -41,8 +41,8 @@ class API {
         user.token = sharedPreferences.getString("FirebaseToken", "")
         val params = listOf("uid" to user.uid, "age" to user.age, "gender" to user.gender, "token" to user.token)
         println(params)
-        Fuel.post("/user/add", params).timeout(5000).timeoutRead(60000).responseJson { _, _, result ->
-            println(result)
+        Fuel.post("/users/add", params).timeout(5000).timeoutRead(60000).responseJson { _, _, result ->
+            println("RESULT: $result")
             result.fold({ d ->
             }, { err ->
                 Toast.makeText(context, "Lo sentimos, ha ocurrido un error. Intentelo nuevamente", Toast.LENGTH_SHORT).show()
@@ -56,7 +56,7 @@ class API {
         val params = listOf("user" to Settings.Secure.getString(context.contentResolver, Settings.Secure.ANDROID_ID), "message" to messageID, "puntuation" to puntuation,
                 "reason" to reason)
         println(params)
-        Fuel.post("/messageClassification/add", params).timeout(5000).timeoutRead(60000).responseJson { _, _, result ->
+        Fuel.post("/messageQualifications/add", params).timeout(5000).timeoutRead(60000).responseJson { _, _, result ->
             println(result)
             result.fold({ d ->
             }, { err ->

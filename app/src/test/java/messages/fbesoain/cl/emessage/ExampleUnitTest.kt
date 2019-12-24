@@ -1,4 +1,4 @@
-package cl.fbesoain.argumentquality
+package messages.fbesoain.cl.emessage
 
 import org.junit.Test
 

@@ -1,11 +1,11 @@
-package cl.fbesoain.argumentquality
+package messages.fbesoain.cl.emessage
 
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import com.github.kittinunf.fuel.Fuel
 import com.github.kittinunf.fuel.android.extension.responseJson
 import com.github.kittinunf.fuel.core.FuelManager
@@ -53,7 +53,7 @@ class EvaluarMensajeActivity : AppCompatActivity() {
     }
 
     fun getLastMessage() {
-        Fuel.get("/message/last").timeout(5000).timeoutRead(60000).responseJson { _, _, result ->
+        Fuel.get("/messages/last").timeout(5000).timeoutRead(60000).responseJson { _, _, result ->
             println(result)
             result.fold({ d ->
                 val res = JSONObject(result.get().content)
@@ -71,7 +71,7 @@ class EvaluarMensajeActivity : AppCompatActivity() {
             if (sharedPreferences.getString("lastMessageID", "").equals(message._id)) {
                 val rate = sharedPreferences.getString("lastRate", "")
                 if (rate != "") {
-                    rbClassification.rating = rate!!.toFloat()
+                    rbClassification.rating = rate.toFloat()
                     rbClassification.setIsIndicator(true)
                 }else{
                     rbClassification.setIsIndicator(false)
@@ -82,7 +82,7 @@ class EvaluarMensajeActivity : AppCompatActivity() {
     }
 
     fun checkStatusLastMessage() : Boolean {
-        Fuel.get("/message/last").timeout(5000).timeoutRead(60000).responseJson { _, _, result ->
+        Fuel.get("/messages/last").timeout(5000).timeoutRead(60000).responseJson { _, _, result ->
             result.fold({ d ->
                 val res = JSONObject(result.get().content)
                 message._id = res["_id"].toString()
