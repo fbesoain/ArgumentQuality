@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context=".EvaluarMensajeActivity">
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".5"
+        android:text="Último mensaje"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:textSize="14sp"
+        android:textColor="@android:color/black"/>
+
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="12"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        app:cardElevation="2dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tvMessage"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="8"
+                android:textSize="14sp"
+                android:textColor="@android:color/black"
+                tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin dictum nec urna non porttitor. Maecenas interdum elit eget dapibus maximus. Curabitur arcu quam, porttitor sit amet orci eget, cursus congue arcu. Integer tempor dolor nec libero lacinia, accumsan laoreet mi porttitor. Sed eget tempor lacus, in porttitor lacus. Nulla pellentesque pellentesque venenatis. Duis elit felis, lobortis quis egestas sed, euismod a nulla. Fusce gravida odio non ante venenatis molestie. Quisque efficitur nisl nulla. Sed volutpat nulla ut purus mattis feugiat. Aliquam tempus, lorem nec efficitur fringilla, turpis elit facilisis dolor, vel bibendum mauris massa sed arcu. Nulla in iaculis sem, nec lobortis massa. Proin maximus et augue sed venenatis. Pellentesque mollis felis eget nibh blandit convallis. Sed consectetur, purus non porttitor dictum, sapien quam congue nunc, et ultrices libero justo quis sem. Sed diam metus, egestas nec volutpat ut, vestibulum ut augue. Etiam ut lacus ac mi molestie aliquam accumsan in erat. Morbi et nunc sed ligula fringilla hendrerit sed id metus. Donec nec convallis nisi. Suspendisse facilisis posuere risus, eget molestie magna iaculis vel. Nullam sed magna risus. In at erat feugiat, viverra tortor in, aliquet sem. Donec sollicitudin sapien a nisi cursus malesuada. Ut efficitur, elit quis tempus" />
+
+            <RatingBar
+                android:id="@+id/rbClassification"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:numStars="5"/>
+
+            <Button
+                android:id="@+id/btnUpdate"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight=".8"
+                android:background="@color/colorPrimary"
+                android:textColor="@android:color/white"
+                android:text="Actualizar" />
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

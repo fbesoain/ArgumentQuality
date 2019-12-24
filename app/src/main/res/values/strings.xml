@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">eMessage</string>
+    <string-array name="gender">
+        <item>Hombre</item>
+        <item>Mujer</item>
+    </string-array>
+</resources>
